@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Garden Management</title>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="ourmoto.html">Our Motto</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="tandc.html">Terms and Conditions</a>
+    <a href="index.html">
+      <img src="logo.jpg" alt="Logo" class="logo">
+  </a>
+</div>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #e0f7fa, #ffccbc);
+      color: #333;
+    }
+
+    h1 {
+      color: #388e3c;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    #plantForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    #plantForm input[type="text"] {
+      padding: 12px;
+      margin: 10px 0;
+      width: 90%;
+      max-width: 400px;
+      border: 2px solid #a5d6a7;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    #plantForm input[type="text"]:focus {
+      border: 2px solid #388e3c;
+      outline: none;
+    }
+
+    #plantForm button {
+      padding: 12px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #388e3c;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    #plantForm button:hover {
+      background-color: #2e7d32;
+    }
+
+    .plant-list {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .plant-list h2 {
+      color: #388e3c;
+      font-size: 2em;
+      text-align: center;
+    }
+
+    .plant {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      margin: 10px 0;
+      background: #f1f8e9;
+      border-left: 5px solid #66bb6a;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .plant span {
+      font-size: 18px;
+      font-weight: 500;
+      color: #388e3c;
+    }
+
+    .plant-buttons button {
+      padding: 8px 16px;
+      font-size: 14px;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 5px;
+    }
+
+    .plant-buttons button:first-child {
+      background-color: #ffa726; 
+    }
+
+    .plant-buttons button:first-child:hover {
+      background-color: #fb8c00;
+    }
+
+    .plant-buttons button:last-child {
+      background-color: #e57373; 
+    }
+
+    .plant-buttons button:last-child:hover {
+      background-color: #ef5350;
+    }
+
+    .navbar {
+            background-color: #83224c;
+            color: white;
+            overflow: hidden;
+            padding: 10px;
+            position: relative;
+            }
+        .navbar a {
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+            }
+        .navbar a:hover {
+            background-color: #575757;
+            }
+        .navbar .logo {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 50px;
+            height: auto;
+            border-radius: 0px;
+            border: 0px;
+            }
+
+            .thank-you {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #83224c;
+            border-radius: 0px;
+            text-align: center;
+            color: #fff;
+            margin-top: 378px;
+            justify-content: flex-end;
+        }
+
+  </style>
+</head>
+<body>
+  <h1>Home Garden Management</h1>
+
+  <!-- Form to add or update plant names -->
+  <form id="plantForm">
+    <input type="text" id="plantName" placeholder="Enter Plant Name" required>
+    <button type="submit">Add Plant</button>
+    <button type="button" id="updatePlantButton" style="display: none;">Update Plant</button>
+  </form>
+
+  <!-- Section to display plant names -->
+  <div class="plant-list" id="plantList">
+    <h2>Plant List</h2>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+<div class="thank-you">
+    <p1>Thank you for being a part of our community! We hope you enjoy our services. Feel free to share us with your friends and family!</p1>
+</div>
+
+  <script>
+    const plantForm = document.getElementById('plantForm');
+const plantList = document.getElementById('plantList');
+const plantNameInput = document.getElementById('plantName');
+const updatePlantButton = document.getElementById('updatePlantButton');
+
+let plantsDatabase = [];
+let currentEditIndex = null;
+
+// Function to render plant list
+function renderPlants() {
+  plantList.innerHTML = "<h2>Plants Available In Your Home Garden</h2>"; // Clear existing list
+  plantsDatabase.forEach((plant, index) => {
+    const plantElement = document.createElement('div');
+    plantElement.className = 'plant';
+    plantElement.innerHTML = `
+      <span>${plant.name}</span>
+      <div class="plant-buttons">
+        <button onclick="editPlant(${index})">Edit</button>
+        <button onclick="deletePlant(${index})">Delete</button>
+      </div>
+    `;
+    plantList.appendChild(plantElement);
+  });
+}
+
+// Function to add a new plant
+function addPlant(event) {
+  event.preventDefault();
+
+  const plantName = plantNameInput.value.trim();
+  if (plantName === "") return; // Prevent empty input
+
+  if (currentEditIndex !== null) {
+    // Update existing plant
+    plantsDatabase[currentEditIndex].name = plantName;
+    currentEditIndex = null;
+    updatePlantButton.style.display = 'none'; // Hide update button
+  } else {
+    // Add new plant
+    plantsDatabase.push({ name: plantName });
+  }
+
+  plantForm.reset();
+  renderPlants();
+}
+
+// Function to edit a plant
+function editPlant(index) {
+  currentEditIndex = index;
+  plantNameInput.value = plantsDatabase[index].name;
+  updatePlantButton.style.display = 'inline'; // Show update button
+}
+
+// Function to delete a plant
+function deletePlant(index) {
+  plantsDatabase.splice(index, 1);
+  renderPlants();
+}
+
+// Event listeners for form submission and update button
+plantForm.addEventListener('submit', addPlant);
+updatePlantButton.addEventListener('click', addPlant); // Use same function for updating
+
+// Initial render
+renderPlants();
+
+  </script>
+</body>
+</html>

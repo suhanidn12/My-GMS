@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homemade Fertilizers from Kitchen Waste</title>
+  <link rel="stylesheet" href="fertilizer.css">
+</head>
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="ourmoto.html">Our Motto</a>
+  <a href="aboutus.html">About Us</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="tandc.html">Terms and Conditions</a>
+  <a href="mainpage.html">
+    <a href="index.html">
+      <img src="logo.jpg" alt="Logo" class="logo">
+  </a>
+</a>
+</div>
+
+<br>
+<br>
+<body>
+  <h1 style="font-family:Arial, Helvetica, sans-serif; color:#1d0f13; border: dotted;" >Homemade Fertilizers from Kitchen Waste</h1>
+  <div class="container">
+    <div class="fertilizer-list" id="fertilizerList">
+    </div>
+  </div>
+
+  <div id="modal" class="modal-overlay">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title">Fertilizer Title</h2>
+      <p id="modal-description">Detailed description about the fertilizer.</p>
+    </div>
+  </div>
+
+  <script>
+    const fertilizers = [
+      {
+        id: "banana-peel",
+    title: "Banana Peel Fertilizer",
+    description: "Chop banana peels and bury them in the soil around plants. Banana peels provide potassium, which strengthens plants and boosts flowering.",
+      image: "Bananapeel.jpg"},
+      { id: "vegetable-scrap", title: "Vegetable Scrap Compost", description: "Collect vegetable scraps, coffee grounds, and other organic waste. Place them in a compost bin, keep moist, and turn regularly. In a few weeks, you’ll have rich compost to nourish your plants." 
+      , image : "vegetable.jpg"},
+  { id: "eggshell", title: "Eggshell Fertilizer", description: "Crush eggshells into a fine powder and sprinkle it around plants. The calcium in eggshells helps improve soil structure and encourages root growth.", image: "eggshell.jpg" },
+  { id: "coffee-grounds", title: "Coffee Grounds Fertilizer", description: "Spread used coffee grounds on the soil or mix with water as a liquid fertilizer. Coffee grounds add nitrogen to the soil, promoting healthy plant growth.", image : "coffee grounds.jpg" },
+  { id: "fish-emulsion", title: "Fish Emulsion Fertilizer", description: "Fish emulsion is a liquid fertilizer made from fish by-products. It is rich in nitrogen, phosphorus, and potassium, which promote strong growth and root development. Dilute with water and apply around the base of your plants." , image : "fish emulsion.jpg"},
+  { id: "compost-tea", title: "Compost Tea Fertilizer", description: "Compost tea is a nutrient-rich liquid made by soaking compost in water. It is full of beneficial microbes and nutrients that promote healthy soil and plant growth. Simply steep compost in water for 24-48 hours and use it to water your plants.", image : "compost tea.jpg"},
+  { id: "banana-peel-compost", title: "Banana Peel Compost", description: "Banana peels are rich in potassium, phosphorus, and magnesium. Chop up banana peels and bury them in the soil or add them to your compost bin. Over time, they decompose and enrich the soil with essential nutrients." , image : "banana peel compost.jpg" },
+  { id: "egg-shell-compost", title: "Egg Shell Compost", description: "Eggshells are rich in calcium, which helps strengthen plant cell walls and encourages strong root systems. Crush the shells and add them to your compost bin or sprinkle around the base of your plants.", image : "egg shell compost.jpg" },
+  { id: "green-tea-fertilizer", title: "Green Tea Fertilizer", description: "Green tea contains beneficial nutrients like nitrogen, which plants need to grow. Use leftover green tea to water plants, or mix with other organic fertilizers to create a balanced, natural plant food.", image : "green tea.jpg"},
+  { id: "neem-cake-fertilizer", title: "Neem Cake Fertilizer", description: "Neem cake is a byproduct of neem oil extraction. It contains nitrogen, phosphorus, and potassium and also acts as a natural pesticide, protecting plants from insects and pests. Mix it into your soil or compost for enhanced plant growth.", image:"Neem cake.jpg" },
+  { id: "fish-tank-water", title: "Fish Tank Water Fertilizer", description: "Fish tank water is full of nutrients such as nitrogen and phosphorus. It is an excellent natural fertilizer for plants, especially those in containers. Use the water from your fish tank to water your plants, ensuring a steady supply of nutrients.", image : "fish tank water.jpg" },
+  { id: "comfrey-leaf-fertilizer", title: "Comfrey Leaf Fertilizer", description: "Comfrey leaves are rich in potassium, nitrogen, and phosphorus. Make a liquid fertilizer by soaking the leaves in water for a few weeks, then use the strained liquid to water your plants for strong growth and vibrant blooms.", image:"comfy leaf fertilizer .jpg" },
+  { id: "molasses-fertilizer", title: "Molasses Fertilizer", description: "Molasses is a sugar-rich byproduct of sugar production. It is a great source of potassium and micronutrients that encourage healthy growth. Mix 1 tablespoon of molasses in 1 gallon of water and apply to your plants once a month.", image:"molasses.jpg" },
+  { id: "ash-fertilizer", title: "Wood Ash Fertilizer", description: "Wood ash is rich in potassium and trace minerals, making it a great fertilizer for flowering plants. Sprinkle small amounts of ash around your plants or mix it into your compost to help promote strong, healthy growth.", image : "wood ash.jpg" },
+  { id: "coconut-water-fertilizer", title: "Coconut Water Fertilizer", description: "Coconut water is a natural source of growth hormones and beneficial nutrients like potassium and magnesium. Use fresh coconut water to water your plants, as it helps with seedling growth, root development, and overall plant health.", image: "coconut water.jpg" },
+  { id: "compost", title: "Compost", description: "Compost is a mixture of decayed organic matter, such as kitchen scraps, leaves, and grass clippings. It is an excellent source of organic nutrients and helps improve soil structure. Add compost to your garden to improve plant health and increase yield.", image: "compost.jpg"},
+  { id: "baking-soda-fertilizer", title: "Baking Soda Fertilizer", description: "Baking soda is a simple and effective fertilizer that helps improve plant growth by balancing soil pH. Mix 1 tablespoon of baking soda in 1 gallon of water and apply it around the base of plants to promote growth and prevent fungal diseases.", image : "baking soda.jpg" },
+  { id: "molasses-compost", title: "Molasses Compost", description: "Molasses helps stimulate microbial activity in compost, speeding up decomposition. Mix a small amount of molasses with compost to increase nutrient content and improve the quality of your compost pile." , image : "molasses compost.jpg"},
+  { id: "sugar-water-fertilizer", title: "Sugar Water Fertilizer", description: "Sugar water is a simple, inexpensive fertilizer that helps plants by providing extra energy in the form of sugar. Mix 1 tablespoon of sugar in 1 gallon of water and apply to the soil. This can encourage strong growth in plants like tomatoes and peppers.", image : "sugar water fertilizer .jpg" },
+  { id: "alfalfa-meal-fertilizer", title: "Alfalfa Meal Fertilizer", description: "Alfalfa meal is rich in nitrogen and trace minerals that help stimulate plant growth. Sprinkle alfalfa meal around the base of your plants or mix it into your compost pile." , image: "alfafa meal fertilizer .jpg"},
+  { id: "soybean-meal-fertilizer", title: "Soybean Meal Fertilizer", description: "Soybean meal is a high-protein fertilizer that provides nitrogen to plants. Mix soybean meal into the soil to improve growth, especially in leafy plants like lettuce and spinach.", image:"soybean meal.jpg" },
+  { id: "fish-bone-meal-fertilizer", title: "Fish Bone Meal Fertilizer", description: "Fish bone meal is rich in phosphorus and calcium, which are essential for strong root systems and flowering. Use fish bone meal to promote blooming and fruiting in your plants.", image:"fish bone meal.jpg" },
+  { id: "splash-fertilizer", title: "Splash Fertilizer", description: "Made by soaking plant waste, such as leaves and stems, in water for several days. The liquid can be used to water other plants, providing a natural nutrient boost." , image:"splashwater.jpg"},
+  { id: "dried-leaf-fertilizer", title: "Dried Leaf Fertilizer", description: "Dried leaves can be crushed and added directly to your garden soil. They provide essential nutrients and help retain moisture in the soil.", image:"dried leaf.jpg" },
+  { id: "tomato-leaf-fertilizer", title: "Tomato Leaf Fertilizer", description: "Tomato leaves, when used properly, provide potassium and phosphorus, helping plants grow. Soak chopped tomato leaves in water and use the liquid to water plants.", image:"tomato leaf fertilizer .jpg" },
+  { id: "wheat-straw-fertilizer", title: "Wheat Straw Fertilizer", description: "Wheat straw is high in carbon and helps improve soil structure when mixed into compost. It also retains moisture, which is beneficial for plants during dry spells." , image: "wheat straw.jpg"},
+  { id: "manure-fertilizer", title: "Manure Fertilizer", description: "Animal manure, such as from cows or chickens, is a rich source of nutrients. Add well-composted manure to your soil to increase fertility and promote healthy plant growth.", image:"manure.jpg" },
+  { id: "sawdust-fertilizer", title: "Sawdust Fertilizer", description: "Sawdust is a great organic material that, when decomposed, adds essential nutrients to the soil. It is especially beneficial for plants that prefer acidic soil.", image : "sawdust.jpg" },
+  { id: "citrus-peel-fertilizer", title: "Citrus Peel Fertilizer", description: "Citrus peels are rich in potassium and can be used to enrich the soil. Chop the peels and bury them in the garden to provide nutrients.", image:"citruspeel.jpg" },
+  { id: "cornmeal-fertilizer", title: "Cornmeal Fertilizer", description: "Cornmeal is a natural fertilizer rich in nitrogen. It helps improve soil structure and promote healthy growth. Sprinkle cornmeal around your plants and water thoroughly." , image:"cornmealfertilizer.jpg"},
+  { id: "orange-peel-fertilizer", title: "Orange Peel Fertilizer", description: "Orange peels contain potassium and can be used to improve flowering and fruiting. Chop and bury them in the soil or add to compost.", image:"orangepeelfertilizer.jpg" },
+  { id: "peanut-shell-fertilizer", title: "Peanut Shell Fertilizer", description: "Peanut shells are rich in phosphorus and can be added to compost or spread around the base of plants to provide long-term nutrition." , image:"peanutshell.jpg"},
+  { id: "chicken-manure", title: "Chicken Manure Fertilizer", description: "Chicken manure is a powerful fertilizer rich in nitrogen, phosphorus, and potassium. Use composted chicken manure to enrich your soil." , image:"chickenmanurefertilizer.jpg"},
+  { id: "potato-skin-fertilizer", title: "Potato Skin Fertilizer", description: "Potato skins are rich in potassium. Use them in compost or bury them in the soil around plants for added nutrition.", image :"potatoskin.jpg" },
+  { id: "spinach-water-fertilizer", title: "Spinach Water Fertilizer", description: "Spinach leaves are rich in nitrogen, phosphorus, and potassium. Soak spinach leaves in water and use the liquid to water your plants." , image:"spinachwater.jpg"},
+  { id: "garlic-water-fertilizer", title: "Garlic Water Fertilizer", description: "Garlic is known for its antifungal and antibacterial properties. Soak garlic in water for a few days and use the liquid to water your plants.", image:"garlicwater.jpg" },
+  { id: "onion-skin-fertilizer", title: "Onion Skin Fertilizer", description: "Onion skins are rich in potassium and trace minerals. Add onion skins to compost or boil them to create a nutrient-rich liquid fertilizer." , image:"onionpeel.jpg"},
+  { id: "aloe-vera-fertilizer", title: "Aloe Vera Fertilizer", description: "Aloe vera gel is rich in nutrients that can benefit plant growth. Dilute aloe vera gel in water and apply to the soil to boost plant health.", image:"aloevera.jpg" },
+  { id: "mustard-seed-fertilizer", title: "Mustard Seed Fertilizer", description: "Mustard seeds can be made into a rich fertilizer by soaking them in water. The resulting liquid fertilizer can help in plant growth." , image:"mustardseed.jpg"},
+  { id: "seaweed-fertilizer", title: "Seaweed Fertilizer", description: "Seaweed contains important minerals and trace elements for plants. Use seaweed as a mulch or make a seaweed tea for use in your garden." , image:"seaweed.jpg"},
+  { id: "dandelion-tea-fertilizer", title: "Dandelion Tea Fertilizer", description: "Dandelions are rich in potassium, phosphorus, and other nutrients. Soak dandelion leaves in water for several days to make a nutrient-rich liquid fertilizer.", image:"dandeliontea.jpg" },
+  { id: "chamomile-tea-fertilizer", title: "Chamomile Tea Fertilizer", description: "Chamomile tea is known for its antifungal properties. Use cooled chamomile tea to water your plants and prevent fungal infections." , image:"Chamomiletea.jpg"},
+  { id: "sweet-potato-skin-fertilizer", title: "Sweet Potato Skin Fertilizer", description: "Sweet potato skins are rich in potassium. Bury them in the soil or compost them for a natural fertilizer.", image:"sweet potato skin.jpg" },
+  { id: "tomato-water-fertilizer", title: "Tomato Water Fertilizer", description: "Leftover tomato water from cooking or rinsing tomatoes can be a good source of potassium and trace minerals.", image:"tomatowater.jpg" },
+  { id: "carrot-top-fertilizer", title: "Carrot Top Fertilizer", description: "Carrot tops contain potassium and can be added to compost or used to make a liquid fertilizer.", image:"carrottop.jpg" }
+    ];
+
+    // Function to generate fertilizer cards
+    function generateFertilizerCards() {
+  const fertilizerList = document.getElementById("fertilizerList");
+
+  fertilizers.forEach(fertilizer => {
+    const card = document.createElement("div");
+    card.className = "fertilizer-card";
+    card.setAttribute("onclick", `openModal('${fertilizer.id}')`);
+    
+    card.innerHTML = `
+      <img src="${fertilizer.image}" alt="${fertilizer.title}">
+      <h2>${fertilizer.title}</h2>
+    `;
+
+    fertilizerList.appendChild(card);
+  });
+}
+
+    // Open modal function
+    function openModal(fertilizerId) {
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDescription = document.getElementById("modal-description");
+
+      // Find the fertilizer by ID
+      const fertilizer = fertilizers.find(f => f.id === fertilizerId);
+      if (fertilizer) {
+        modalTitle.textContent = fertilizer.title;
+        modalDescription.textContent = fertilizer.description;
+      }
+
+      // Display the modal
+      modal.style.display = "flex";
+    }
+
+    // Close modal function
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of the content
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Generate fertilizer cards on page load
+    generateFertilizerCards();
+  </script>
+<br>
+<br>
+<div class="thank-you">
+  Thank you for being a part of our community! We hope you enjoy our services. Feel free to share us with your friends and family!
+</div>
+</body>
+</html>

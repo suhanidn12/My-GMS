@@ -1,0 +1,149 @@
+ /* General styling */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    margin-top: 40px;
+    background-image: url(bg.jpeg);
+    color: #333;
+  }
+
+  h1 {
+    color: #388e3c; /* Green for title */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .fertilizer-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* Fertilizer card styling */
+  .fertilizer-card {
+    width: 280px;
+    border: 2px solid #388e3c; /* Green border */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+
+  .fertilizer-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    border-color: #e91e63; /* Pink border on hover */
+  }
+
+  .fertilizer-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .fertilizer-card h2 {
+    font-size: 1.4em;
+    color: #388e3c;
+    margin: 10px 0;
+  }
+
+  /* Modal styling */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(224, 247, 250, 0.9); /* Sky blue overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    position: relative;
+  }
+
+  .modal-content h2 {
+    color: #388e3c; /* Green for modal title */
+    margin-top: 0;
+  }
+
+  .modal-content p {
+    color: #555;
+  }
+
+  /* Close button styling */
+  .close-modal {
+    cursor: pointer;
+    color: #e91e63; /* Pink close button */
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    transition: color 0.3s;
+  }
+
+  .close-modal:hover {
+    color: #d32f2f; /* Darker pink on hover */
+  }
+
+  .fertilizer-card:hover h2 {
+    color: #e91e63; /* Pink text color on hover */
+  }
+
+  .navbar {
+    background-color: #83224c;
+    color: white;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+.navbar .logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 50px;
+    height: auto;
+    border: 0px;
+    margin-right: 20px;
+}
+
+.thank-you {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 20px;
+  background-color: #83224c;
+  color: #fff;
+  width: 100%;
+  margin-top: auto;
+  text-align: center;
+}

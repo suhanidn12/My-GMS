@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myala.css">
+    <title>Alarm Clock For Plants Care</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ourmoto.html">Our Motto</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="tandc.html">Terms and Conditions</a></li>
+            </ul>
+            <div class="logo">
+                <a href="index.html">
+                <img src="logo.jpg" alt="Logo">
+            </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="clock">
+        <h1>Alarm For Your Pretty Garden ;></h1>
+        <h3>Your plants are waiting to be looked after from your busy schedule!</h3>
+        <div class="time" id="time">00:00:00</div>
+        <div class="input-row">
+            <div class="input-field">
+                <label for="alarmName">Alarm Name:</label>
+                <input type="text" id="alarmName" class="alarm-input" placeholder="Enter alarm name">
+            </div>
+            <div class="input-field">
+                <label for="alarmDate">Select Date:</label>
+                <input type="date" id="alarmDate" class="alarm-input">
+            </div>
+            <div class="input-field">
+                <label for="alarmTime">Select Time:</label>
+                <input type="time" id="alarmTime" class="alarm-input">
+            </div>
+            <button id="setAlarm">Set Alarm</button>
+        </div>
+        <div class="alarms" id="alarms"></div>
+    </div>
+<script src="myala.js"></script>
+    <footer>
+        <p>Thank you for being a part of our community! We hope you enjoy our services. Feel free to share us with your friends and family!</p>
+    </footer>
+</body>
+
+</html>

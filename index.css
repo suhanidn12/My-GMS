@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(bg1.jpg);
+    background-size: cover;
+    padding-top: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navbar {
+    background-color: #83224c;
+    color: white;
+    overflow: hidden;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    background-image: url(bg1.jpg);
+}
+
+.navbar .logo {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 50px;
+    height: auto;
+    border: 0px;
+    margin-right: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 1200px;
+    padding-right: 30px;
+}
+
+.left {
+    position: relative;
+    height: 500px;
+    width: 800px;
+    margin-top: 80px;
+    
+}
+
+.slideshow {
+    position: relative;
+    height: 100%;
+}
+
+.slideshow img {
+    width: 90%;
+    height: 110%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 3%;
+    border: double rgb(34, 108, 35);
+    box-shadow: 13px 13px 5px rgb(45, 45, 45);
+    margin-left: 200px;
+}
+
+.slideshow img.active {
+    opacity: 1;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.right p {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    width: 600px;
+}
+
+.buttons {
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.big-button {
+color: #fff;
+padding: 18px 28px;
+background-color: #09df89;
+background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+border-radius: 13px;
+font-weight: bold;
+font-size: 23px;
+border: 0;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+cursor: pointer;
+}
+
+.big-button:hover {
+    background-color: #009559;
+}
+
+.small-button {
+    background-image: linear-gradient(92.88deg, #0b81ff 9.16%, #2d01a5 43.89%, #250284 64.72%);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 3rem;
+    padding: 0px 11px;
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+    user-select: none;
+    margin-bottom: 60px;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border: white solid 1px;
+}
+
+.three {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-waste-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(179, 0, 255);
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), 
+                      radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), 
+                inset 0px 3px 9px rgba(255, 255, 255, 0.3), 
+                inset 0px 1px 1px rgba(255, 255, 255, 0.6), 
+                inset 0px -8px 36px rgba(0, 0, 0, 0.3), 
+                inset 0px 1px 5px rgba(255, 255, 255, 0.6), 
+                2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 13px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 10px 18px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+.home-waste-button:hover {
+    background-color: rgb(255, 0, 212);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3), 
+                0px 3px 6px rgba(255, 255, 255, 0.4), 
+                inset -3px -3px 5px rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+    color: black; 
+}
+
+
+.myplants-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.myplants-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(255, 217, 0);
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), 
+                      radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), 
+                inset 0px 3px 9px rgba(255, 255, 255, 0.3), 
+                inset 0px 1px 1px rgba(255, 255, 255, 0.6), 
+                inset 0px -8px 36px rgba(0, 0, 0, 0.3), 
+                inset 0px 1px 5px rgba(255, 255, 255, 0.6), 
+                2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 13px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    padding: 10px 18px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.myplants-button:hover {
+    background-color: rgb(255, 0, 212);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3), 
+                0px 3px 6px rgba(255, 255, 255, 0.4), 
+                inset -3px -3px 5px rgba(255, 255, 255, 0.25);
+    transform: scale(1.05); /* Slight zoom-in effect */
+    color: black; /* Change text color on hover */
+}
+
+
+.thank-you {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+    background-color: #83224c;
+    color: #fff;
+    width: 100%;
+    margin-top: auto;
+    text-align: center;
+}
+.sample{
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    margin-left: 40px;
+}
+.right h1{
+    font-size: 50px;
+    font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.three {
+    padding-top: 40px;
+}
+
+.two {
+    padding-top: 50px;
+}
+
